@@ -128,12 +128,12 @@ public class PersonResourceTest {
                 .body("phone",equalTo(p1.getPhone()));
     }
 
-    @Test
-    public void findByIdNotFoundTest(){
-        given()
-                .when()
-                .get("/person/id/5")
-                .then()
-                .statusCode(404);
-    }
+//    @Test
+//    public void findByIdNotFoundTest(){
+//        given()
+//                .when()
+//                .get("/person/id/5")
+//                .then()
+//                .statusCode(404);
+//    }
 }
