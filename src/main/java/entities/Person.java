@@ -2,11 +2,7 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 
 
 @Entity
@@ -22,6 +18,10 @@ public class Person implements Serializable {
     private String phone;
     private Date created;
     private Date lastEdit;
+
+    @ManyToOne
+    @JoinColumn(name = "address_id",referencedColumnName = "id")
+    private Address address;
 
     public Person() {
     }
@@ -80,5 +80,16 @@ public class Person implements Serializable {
 
     public void setLastEdit(Date lastEdit) {
         this.lastEdit = lastEdit;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+        if(!address.getPersons().contains(this)){
+            address.addPerson(this);
+        }
     }
 }

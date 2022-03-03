@@ -1,6 +1,7 @@
 package facades;
 
 import dtos.PersonDTO;
+import entities.Address;
 import entities.Person;
 
 import java.util.Date;
@@ -56,6 +57,8 @@ public class PersonFacade implements IPersonFacade {
             em.close();
         }
     }
+
+
 
     @Override
     public PersonDTO deletePerson(int id) throws PersonNotFoundException {
@@ -122,6 +125,17 @@ public class PersonFacade implements IPersonFacade {
 
            return p;
 
+        } finally {
+            em.close();
+        }
+    }
+
+    public void addAddress(Address address){
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(address);
+            em.getTransaction().commit();
         } finally {
             em.close();
         }

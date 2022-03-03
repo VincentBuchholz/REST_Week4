@@ -5,9 +5,13 @@
  */
 package dtos;
 
+import entities.Address;
 import entities.Person;
+
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -18,6 +22,9 @@ public class PersonDTO {
     private String lName;
     private String phone;
     private int id;
+    private String street;
+    private String city;
+    private int zip;
 
     public PersonDTO(Person person) {
         this.fName = person.getFirstName();
@@ -25,6 +32,11 @@ public class PersonDTO {
         this.phone = person.getPhone();
         if(person.getId() != 0) {
             this.id = person.getId();
+        }
+        if(person.getAddress() != null){
+            this.street = person.getAddress().getStreet();
+            this.city = person.getAddress().getCity();
+            this.zip = person.getAddress().getZipCode();
         }
     }
     
@@ -73,6 +85,22 @@ public class PersonDTO {
                 ", lName='" + lName + '\'' +
                 ", phone='" + phone + '\'' +
                 ", id=" + id +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", zip=" + zip +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonDTO personDTO = (PersonDTO) o;
+        return id == personDTO.id && zip == personDTO.zip && Objects.equals(fName, personDTO.fName) && Objects.equals(lName, personDTO.lName) && Objects.equals(phone, personDTO.phone) && Objects.equals(street, personDTO.street) && Objects.equals(city, personDTO.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fName, lName, phone, id, street, city, zip);
     }
 }
