@@ -27,7 +27,11 @@ public class PersonResource {
     public Response getAllPersons() {
         List<PersonDTO> personDTOList = FACADE.getAllPersons();
 
-        return Response.ok().entity(GSON.toJson(personDTOList)).build();
+        return Response.ok().header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Headers","origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .entity(GSON.toJson(personDTOList)).build();
     }
 
     @GET
