@@ -2,17 +2,17 @@ GET http://localhost:8080/devops_starter_war_exploded/api/person/all
 
 ###
 
-POST http://localhost:8080/devops_starter_war_exploded/api/person
+POST https://vincehub.dk/devops-starter/api/person/
 Content-Type: application/json
 
 {
-  "fName": "Lars",
-  "lName": "Larsen",
-  "phone": "23132131"
+  "fName": "Vincent",
+  "lName": "Buchholz",
+  "phone": "22551133"
 }
 
 ###
-PUT http://localhost:8080/devops_starter_war_exploded/api/person/edit/2
+PUT https://vincehub.dk/devops-starter/api/person/edit/2
 Content-Type: application/json
 
 {
