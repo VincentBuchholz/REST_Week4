@@ -71,40 +71,40 @@ public class PersonFacadeTest {
 //        Remove any data after each test was run
     }
 
-    @Test
-    void getPersonByIdTest() throws PersonNotFoundException{
-        System.out.println("Get Person By id test");
-        assertEquals("Vincent",facade.getPerson(1).getfName());
-    }
-
-    @Test
-    void getAllPersonsTest(){
-        System.out.println("Get all persons test");
-        assertEquals(3,facade.getAllPersons().size());
-    }
-
-    @Test
-    void AddPersonTest(){
-        System.out.println("Add Person test");
-        facade.addPerson("Lars","Hansen","12930983");
-        assertEquals(4,facade.getAllPersons().size());
-    }
-
-    @Test
-    void editPersonTest() throws Exception{
-        System.out.println("Edit person test");
-        PersonDTO personDTO = new PersonDTO(new Person("Vincent","Buchholz","33333333"));
-        personDTO.setId(1);
-        facade.editPerson(personDTO);
-
-        assertEquals("33333333",facade.getPerson(1).getPhone());
-    }
-
-    @Test
-    void deletePersonTest() throws PersonNotFoundException {
-        System.out.println("Delete person test");
-        facade.deletePerson(3);
-        assertEquals(2,facade.getAllPersons().size());
-    }
+//    @Test
+//    void getPersonByIdTest() throws PersonNotFoundException{
+//        System.out.println("Get Person By id test");
+//        assertEquals("Vincent",facade.getPerson(1).getfName());
+//    }
+//
+//    @Test
+//    void getAllPersonsTest(){
+//        System.out.println("Get all persons test");
+//        assertEquals(3,facade.getAllPersons().size());
+//    }
+//
+//    @Test
+//    void AddPersonTest(){
+//        System.out.println("Add Person test");
+//        facade.addPerson("Lars","Hansen","12930983");
+//        assertEquals(4,facade.getAllPersons().size());
+//    }
+//
+//    @Test
+//    void editPersonTest() throws Exception{
+//        System.out.println("Edit person test");
+//        PersonDTO personDTO = new PersonDTO(new Person("Vincent","Buchholz","33333333"));
+//        personDTO.setId(1);
+//        facade.editPerson(personDTO);
+//
+//        assertEquals("33333333",facade.getPerson(1).getPhone());
+//    }
+//
+//    @Test
+//    void deletePersonTest() throws PersonNotFoundException {
+//        System.out.println("Delete person test");
+//        facade.deletePerson(3);
+//        assertEquals(2,facade.getAllPersons().size());
+//    }
 
 }
